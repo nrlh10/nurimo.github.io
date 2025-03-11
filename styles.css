@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   color: var(--text-primary);
   line-height: 1.6;
   background-color: var(--bg-primary);
@@ -74,6 +74,45 @@ body {
 
 .mobile-menu-btn {
   display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001;
+}
+
+.mobile-menu-btn span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: var(--text-primary);
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links.active {
+  display: flex;
+}
+
+.mobile-menu-btn.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* Hero Section */
@@ -92,7 +131,11 @@ body {
   font-size: 3.5rem;
   line-height: 1.2;
   margin-bottom: 1.5rem;
-  background: linear-gradient(to right, var(--accent-color), var(--accent-hover));
+  background: linear-gradient(
+    to right,
+    var(--accent-color),
+    var(--accent-hover)
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -112,7 +155,8 @@ body {
 }
 
 /* Buttons */
-.btn-primary, .btn-secondary {
+.btn-primary,
+.btn-secondary {
   padding: 1rem 2rem;
   border-radius: 8px;
   font-weight: 500;
@@ -130,7 +174,8 @@ body {
   color: var(--accent-color);
 }
 
-.btn-primary:hover, .btn-secondary:hover {
+.btn-primary:hover,
+.btn-secondary:hover {
   transform: translateY(-2px);
 }
 
@@ -345,63 +390,72 @@ footer .container {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .nav-links {
-      display: none;
-  }
-
   .mobile-menu-btn {
-      display: block;
-      background: none;
-      border: none;
-      cursor: pointer;
+    display: block;
   }
 
-  .mobile-menu-btn span {
-      display: block;
-      width: 25px;
-      height: 2px;
-      background-color: var(--text-primary);
-      margin: 5px 0;
-      transition: 0.3s;
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: var(--bg-secondary);
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    margin: 10px 0;
+    padding: 10px 20px;
+    width: 100%;
+    text-align: center;
   }
 
   .hero h1 {
-      font-size: 2.5rem;
+    font-size: 2.5rem;
   }
 
   .hero-cta {
-      flex-direction: column;
+    flex-direction: column;
   }
 
   .contact-links {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   .project-grid {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 
   .nav-container {
-      padding: 1rem 1.5rem;
+    padding: 1rem 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
   .container {
-      padding: 0 15px;
+    padding: 0 15px;
   }
 
   .hero {
-      padding: 120px 0 60px;
+    padding: 120px 0 60px;
   }
 
-  .work, .about, .contact {
-      padding: 60px 0;
+  .work,
+  .about,
+  .contact {
+    padding: 60px 0;
   }
 
   .project-image {
-      height: 200px;
+    height: 200px;
   }
 }
 
@@ -542,23 +596,23 @@ footer .container {
 /* Responsive Tasarım */
 @media (max-width: 768px) {
   .about-section {
-      padding: 60px 0;
+    padding: 60px 0;
   }
 
   .section-title {
-      font-size: 2rem;
+    font-size: 2rem;
   }
 
   .about-name {
-      font-size: 1.8rem;
+    font-size: 1.8rem;
   }
 
   .experience-cards {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 
   .experience-card {
-      padding: 1.5rem;
+    padding: 1.5rem;
   }
 }
 
